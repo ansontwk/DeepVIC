@@ -1,0 +1,9 @@
+#gitignore
+__pycache__/
+*.h5
+*.pdf
+src/*/*csv
+testing*
+tmp/*
+src/tmp/*
+example/tmp

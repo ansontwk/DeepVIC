@@ -1,0 +1,4 @@
+Metric	BFD PLM Only 	BFD PLM + 13 Evolutionary Feature	BFD PLM + 6 optimal Evolutionary Feature	ISM PLM only	ISM PLM + 13 Evolutionary Feature	ISM PLM + 6 optimal Evolutionary Feature
+Accuracy/Micro Average F1	0.737	0.801	0.848	0.837	0.818	0.843
+Macro Average F1	0.599	0.682	0.738	0.747	0.688	0.747
+Weighted F1	0.736	0.8	0.849	0.838	0.816	0.844

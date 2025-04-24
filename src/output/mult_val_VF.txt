@@ -1,0 +1,15 @@
+VF Class	BFD PLM Only 	BFD PLM + 13 Evolutionary Feature	BFD PLM + 6 optimal Evolutionary Feature	ISM PLM only	ISM PLM + 13 Evolutionary Feature	ISM PLM + 6 optimal Evolutionary Feature
+Adherence	0.735	0.802	0.854	0.824	0.82	0.852
+Invasion	0.263	0.296	0.5	0.462	0.385	0.444
+Effector Delivery System	0.798	0.858	0.903	0.906	0.88	0.906
+Motility	0.723	0.81	0.858	0.84	0.844	0.877
+Exotoxin	0.717	0.804	0.861	0.832	0.806	0.846
+Exoenzyme	0.8	0.813	0.809	0.886	0.752	0.845
+Immune modulation	0.756	0.788	0.843	0.84	0.811	0.827
+Biofilm	0.24	0.324	0.383	0.374	0.263	0.438
+Nutritional/metabolic factor	0.689	0.779	0.818	0.789	0.795	0.775
+Stress	0.697	0.813	0.8	0.862	0.781	0.836
+Regulation	0.618	0.636	0.75	0.667	0.623	0.746
+Post-translational modification	0.583	0.444	0.56	0.692	0.552	0.636
+Antimicrobial activity/competitive advantage	0.2	0.75	0.75	0.889	0.75	0.889
+Others	0.564	0.629	0.641	0.6	0.568	0.544
