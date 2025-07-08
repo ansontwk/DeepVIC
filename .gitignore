@@ -7,3 +7,4 @@ testing*
 tmp/*
 src/tmp/*
 example/tmp
+archive*

@@ -88,11 +88,10 @@ def save_file(embeddings, outfile_path):
         hf.create_dataset("embeddings", data=embeddings)
 
 #embed some data
-def embed_PLM(seqs, ProtBertBFD_path = "/PATH/TO/ProtBertBFD"):
+def embed_PLM(seqs, ProtBertBFD_path = "/PATH/TO/BFD"):
     from transformers.utils import logging
     logging.set_verbosity(40)
     from transformers import TFBertModel, BertTokenizer
-    from src.utils.paths import ProtBertBFD_path
     tokenizer = BertTokenizer.from_pretrained(ProtBertBFD_path, do_lower_case=False)
     model = TFBertModel.from_pretrained(ProtBertBFD_path, from_pt=True)
     
@@ -115,9 +114,7 @@ def embed_PLM(seqs, ProtBertBFD_path = "/PATH/TO/ProtBertBFD"):
             seq_emd = embedding[seq_num][1:seq_len-1]
             seq_emd = centroid_vector(seq_emd)
             embeddings.append(seq_emd)
-    
     embeddings = np.vstack(embeddings)
-
     return embeddings
 
 def get_PSSM_embeddings(seqheaders, features, featuredict, feature_dir = "./tmp/features"):

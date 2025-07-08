@@ -9,7 +9,7 @@ program_header = r"""
 """
 program_desc = "DeepVIC: Deep learning Virulence factor Identifier and Classifier"
 program_whatdoesitdo = "Bacterial Virulence factor prediction and classifcation based on protein sequences"
-version = "1.0.0"
+version = "1.0.1"
 flavour_text = "'Houston, We have lift-off'"
 author = "WK TSUI"
 

@@ -25,6 +25,9 @@ DeepVIC enables the prediction and classification of bacterial virulence factors
     ```
 
 3. Under `src/utils/paths.py` modify the paths to your local installation of ProtBert BFD.
+    
+    Alternatively, you can specify the path to ProtBert BFD using the `--protbert_path` flag.
+
 
 4. Verify that the `DeepVIC.py` can be executed.
     ```bash
@@ -37,6 +40,13 @@ DeepVIC enables the prediction and classification of bacterial virulence factors
     ```bash
     python DeepVIC.py -m b -i ./example/test.fa -o ./example/output_binary.tsv
     python DeepVIC.py -m m -i ./example/test.fa --pssmpath ./example/features -o ./example/output_multiclass.tsv
+    ```
+
+    If you did not set a path to ProtBert BFD in step 3
+
+    ```bash
+    python DeepVIC.py -m b -i ./example/test.fa -o ./example/output_binary.tsv --protbert_path /PATH/TO/PROTBERTBFD
+    python DeepVIC.py -m m -i ./example/test.fa --pssmpath ./example/features -o ./example/output_multiclass.tsv --protbert_path /PATH/TO/PROTBERTBFD
     ```
 
 ## Usage
@@ -153,7 +163,7 @@ The following packages and versions are used in the project:
 
     As of Aug 2024, [POSSUM](http://possum.erc.monash.edu/) is no longer available. Suggested alternatives to POSSUM is the R-based tool [PSSMCOOL](https://github.com/BioCool-Lab/PSSMCOOL) or the CLI-tool [ProtFeat](https://github.com/gozsari/ProtFeat).
 
-    Kindly cite those tools if you use them for feature extraction.
+    
 
 ## Citation
 
@@ -161,6 +171,13 @@ Please cite this repo if you use DeepVIC in your work
 
 Citation details will be updated.
 
+DeepVIC uses POSSUM and ProtBert BFD for feature extraction. Please kindly cite those tools as well.
+
 ## License
 
 This project is licensed under the terms of the MIT license. See [LICENSE](./LICENSE.md) file for more details. 
+
+## Changelog
+
+* v1.0.0 Initial release
+* v1.0.1 Added support to directly calling path to ProtBert BFD in `DeepVIC.py`. Cleaned up some formatting.

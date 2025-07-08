@@ -14,6 +14,7 @@ parser.add_argument('-s', '--silent',  default = False, action = 'store_true', h
 parser.add_argument("-o", "--output", type = str, required = True, help = "filepath to your output file")
 parser.add_argument("--clean", default= False, action = 'store_true', help = "clean up intermediate files, defaults to False")
 parser.add_argument("--pssmpath", default = "./tmp/features", type = str, help = "path to pssm feature files, defaults to tmp/features")
+parser.add_argument("--protbert_path", type = str, help = "Path to ProtBERT-BFD model, optional. If not provided, it will be loaded from ./src/utils/paths.py")
 args = parser.parse_args()
 cutoff = args.cutoff
 mode = args.mode.lower()
@@ -22,12 +23,16 @@ verbose = args.silent
 outpath = args.output
 cleanup = args.clean
 pssmpath = args.pssmpath
+protbert_path = args.protbert_path
 def main():
     if not verbose:
         cfg.print_header()
     if not mode == "b" and not mode == "m":
         raise SystemExit(f'{mode} is not a correct mode. Please specific binary "b" or multiclass "m" in the --mode flag')
-    subprocess.run(["python", "embed.py", "-i", str(seqfile)])
+    if protbert_path:
+        subprocess.run(["python", "embed.py", "-i", str(seqfile), "-p", str(protbert_path)])
+    else:
+        subprocess.run(["python", "embed.py", "-i", str(seqfile)])
     subprocess.run(["python", "predict.py", "-c", str(cutoff), "-m", str(mode), "-i", str(seqfile), "-s", str(verbose), "-o", str(outpath), "--pssmpath", str(pssmpath)])
     if cleanup:
         subprocess.run(["rm", "./tmp/tmp.h5"])
