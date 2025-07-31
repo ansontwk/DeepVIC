@@ -27,12 +27,19 @@ protbert_path = args.protbert_path
 def main():
     if not verbose:
         cfg.print_header()
+        print(f"Running prediction on {os.path.basename(seqfile)}")
+    
     if not mode == "b" and not mode == "m":
         raise SystemExit(f'{mode} is not a correct mode. Please specific binary "b" or multiclass "m" in the --mode flag')
+    
+    if not verbose:
+        print(f"Embedding sequences")
     if protbert_path:
         subprocess.run(["python", "embed.py", "-i", str(seqfile), "-p", str(protbert_path)])
     else:
         subprocess.run(["python", "embed.py", "-i", str(seqfile)])
+    if not verbose:
+        print(f"Predicting sequences")
     subprocess.run(["python", "predict.py", "-c", str(cutoff), "-m", str(mode), "-i", str(seqfile), "-s", str(verbose), "-o", str(outpath), "--pssmpath", str(pssmpath)])
     if cleanup:
         subprocess.run(["rm", "./tmp/tmp.h5"])

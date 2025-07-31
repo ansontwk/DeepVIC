@@ -33,8 +33,8 @@ def main():
     
     preds = model.predict(tensor_source, verbose = 0)
     
-    columns = ['Baseline', 'mucbp domain 1 masked', 'mucbp domain 2 masked', 'mucbp domain 3 masked', 'mucbp domain 4 masked','all domain masked']
-    columns2 = ['Baseline', 'mucbp domain 1 masked', 'mucbp domain 2 masked', 'mucbp domain 3 masked', 'all domain masked']
+    columns = ['Baseline', 'Mucbp domain 1 masked', 'Mucbp domain 2 masked', 'Mucbp domain 3 masked', 'Mucbp domain 4 masked','All domains masked']
+    columns2 = ['Baseline', 'Mucbp domain 1 masked', 'Mucbp domain 2 masked', 'Mucbp domain 3 masked', 'All domains masked']
     df = pd.DataFrame(shap_val.T, columns = columns + columns2)
     dfs = np.split(df, [6], axis=1)
     

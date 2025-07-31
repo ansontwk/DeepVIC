@@ -44,10 +44,14 @@ def main():
         plot_combined(data, classlab, f"./plot/mult_shap_{header}.pdf", pred_softmax)
         
         kwh, kwpval, kwfreedom = kwtest(data)
-        print(f"Sample: {header}, H-statistic: {kwh}, pval: {kwpval} ({p_to_star(kwpval)}), freedom: {kwfreedom}")
+        with open("./output/mult_shap_results.txt", "a") as writefile:
+            writefile.write(f"Sample: {header}, H-statistic: {kwh}, pval: {kwpval} ({p_to_star(kwpval)}), freedom: {kwfreedom}\n")
+        #print(f"Sample: {header}, H-statistic: {kwh}, pval: {kwpval} ({p_to_star(kwpval)}), freedom: {kwfreedom}")
         if kwpval < 0.05:
             dunps = dunn(data, classlab)
-            print(dunps.map(p_to_star))
+            with open("./output/mult_shap_results.txt", "a") as writefile:
+                writefile.write(f"{dunps.map(p_to_star)}\n")
+            #print(dunps.map(p_to_star))
                     
     #save shap contribution values        
     testframe.to_csv("./output/mult_shap_contribution.csv", index = False)

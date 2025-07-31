@@ -10,9 +10,10 @@
 DeepVIC enables the prediction and classification of bacterial virulence factors from protein sequences by using ProtBert BFD PLM model embeddings and evolutionary features from position-specific scoring matrices. 
 
 ## Setup and Installation
-0. Clone this repository
+0. Clone this repository and enter the directory
     ```bash
     git clone https://github.com/ansontwk/DeepVIC.git
+    cd DeepVIC
     ```
 1. Install conda environment and dependencies
     ```bash 
@@ -161,7 +162,7 @@ The following packages and versions are used in the project:
 
 * Alternatives to POSSUM
 
-    As of Aug 2024, [POSSUM](http://possum.erc.monash.edu/) is no longer available. Suggested alternatives to POSSUM is the R-based tool [PSSMCOOL](https://github.com/BioCool-Lab/PSSMCOOL) or the CLI-tool [ProtFeat](https://github.com/gozsari/ProtFeat).
+    As of Aug 2024, [POSSUM](http://possum.erc.monash.edu/) is no longer accessible. Suggested alternatives to POSSUM is the R-based tool [PSSMCOOL](https://github.com/BioCool-Lab/PSSMCOOL) or the CLI-tool [ProtFeat](https://github.com/gozsari/ProtFeat).
 
     
 
@@ -180,4 +181,4 @@ This project is licensed under the terms of the MIT license. See [LICENSE](./LIC
 ## Changelog
 
 * v1.0.0 Initial release
-* v1.0.1 Added support to directly calling path to ProtBert BFD in `DeepVIC.py`. Cleaned up some formatting.
+* v1.0.1 Added support to directly calling path to ProtBert BFD in `DeepVIC.py`. Cleaned up some formatting, increased some verbosity.

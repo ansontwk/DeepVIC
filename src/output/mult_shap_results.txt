@@ -1,0 +1,32 @@
+Sample: WP_014025352.1, H-statistic: 29.07046425876615, pval: 0.006396914332607757 (**), freedom: 13
+    1   2   3   4   5   6   7   8   9   10  11  12  13  14
+1   NS  NS  NS  NS   *  NS  NS  NS  NS  NS  NS  NS  NS  NS
+2   NS  NS  NS  NS  NS  NS  NS  NS  NS  NS  NS  NS  NS  NS
+3   NS  NS  NS  NS  NS  NS  NS  NS  NS  NS  NS  NS  NS  NS
+4   NS  NS  NS  NS  NS  NS  NS  NS  NS  NS  NS  NS  NS  NS
+5    *  NS  NS  NS  NS  NS  NS  NS  NS   *  NS  NS  NS  NS
+6   NS  NS  NS  NS  NS  NS  NS  NS  NS  NS  NS  NS  NS  NS
+7   NS  NS  NS  NS  NS  NS  NS  NS  NS  NS  NS  NS  NS  NS
+8   NS  NS  NS  NS  NS  NS  NS  NS  NS  NS  NS  NS  NS  NS
+9   NS  NS  NS  NS  NS  NS  NS  NS  NS  NS  NS  NS  NS  NS
+10  NS  NS  NS  NS   *  NS  NS  NS  NS  NS  NS  NS  NS  NS
+11  NS  NS  NS  NS  NS  NS  NS  NS  NS  NS  NS  NS  NS  NS
+12  NS  NS  NS  NS  NS  NS  NS  NS  NS  NS  NS  NS  NS  NS
+13  NS  NS  NS  NS  NS  NS  NS  NS  NS  NS  NS  NS  NS  NS
+14  NS  NS  NS  NS  NS  NS  NS  NS  NS  NS  NS  NS  NS  NS
+Sample: WP_014024830.1, H-statistic: 55.659758872920065, pval: 3.0941379011476656e-07 (****), freedom: 13
+      1   2   3   4    5   6     7     8   9   10  11   12  13  14
+1     NS   *  NS  NS  ***  **  ****  ****   *  NS  NS  ***  NS  **
+2      *  NS  NS  NS   NS  NS    NS    NS  NS  NS  NS   NS  NS  NS
+3     NS  NS  NS  NS   NS  NS    NS    NS  NS  NS  NS   NS  NS  NS
+4     NS  NS  NS  NS   NS  NS    NS    NS  NS  NS  NS   NS  NS  NS
+5    ***  NS  NS  NS   NS  NS    NS    NS  NS  NS  NS   NS  NS  NS
+6     **  NS  NS  NS   NS  NS    NS    NS  NS  NS  NS   NS  NS  NS
+7   ****  NS  NS  NS   NS  NS    NS    NS  NS  NS  NS   NS  NS  NS
+8   ****  NS  NS  NS   NS  NS    NS    NS  NS  NS  NS   NS  NS  NS
+9      *  NS  NS  NS   NS  NS    NS    NS  NS  NS  NS   NS  NS  NS
+10    NS  NS  NS  NS   NS  NS    NS    NS  NS  NS  NS   NS  NS  NS
+11    NS  NS  NS  NS   NS  NS    NS    NS  NS  NS  NS   NS  NS  NS
+12   ***  NS  NS  NS   NS  NS    NS    NS  NS  NS  NS   NS  NS  NS
+13    NS  NS  NS  NS   NS  NS    NS    NS  NS  NS  NS   NS  NS  NS
+14    **  NS  NS  NS   NS  NS    NS    NS  NS  NS  NS   NS  NS  NS

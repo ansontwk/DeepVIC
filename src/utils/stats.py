@@ -7,7 +7,7 @@ def shapiro_wilk(data_list):
     return shapiro_res.pvalue
 
 def correction_student_t(data1, data2, n_train = 42823, n_test = 10706):
-    rho = n_train / n_train  
+    rho = n_test / n_train  
     n = len(data1)
     df = n - 1
     diff = [(data1[i]-data2[i]) for i in range(n)]

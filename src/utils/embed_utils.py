@@ -84,6 +84,7 @@ def load_data(infile, dictionary):
             all_label.append(VF)
             
     return all_seqs, all_class, all_subclass, all_label
+
 def load_data_seqonly(infile):
     from utils.formatting import formatseq_BFD as formatseq
     all_seqs = []

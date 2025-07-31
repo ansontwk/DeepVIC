@@ -6,7 +6,7 @@ from sklearn.metrics import r2_score
 plt.rcParams['font.family'] = 'serif'
 from utils.biological import PSSM_TYPE as feature_type
 #plot PSSM vector size vs F1 scores
-baseline_w_f1 = 0.695
+baseline_w_f1 = 0.729
 alltheway_f1 = 0.752
 bfd_vec = 1024
 allthewayvec = 3410 + 1024 
@@ -19,7 +19,9 @@ f1s = []
 cols = []
 
 rd = "#DC0000FF"
+orgn = "#FF7400FF"
 ble = "#3C5488FF" 
+grn = "#006400FF"
 
 def main():
     for file in filelist:
@@ -43,14 +45,13 @@ def main():
     r2 = r2_score(f1s, p(allsize))
     
     #plot
-    plt.figure(figsize = (7, 5))
-    plt.scatter(allsize, f1s, s = 3, alpha = 0.5, c = cols)
-    plt.scatter([bfd_vec, allthewayvec], [baseline_w_f1, alltheway_f1], s = 8, alpha = 1, c = [rd, rd])
-
-    plt.ylabel("Weighted-F1 score", fontsize = 14)
-    plt.xlabel("Vector size", fontsize = 14)
-    plt.plot(allsize, p(allsize), "--", c = "black")
-    plt.text(4100, 0.7, f"$R^2$ = {r2:.3f}", fontsize = 8)
-
-    plt.savefig("./plot/PSSM_feature_gridsearch.pdf", dpi = 300, bbox_inches = 'tight')
+    plt.figure(figsize = (14, 10))
+    plt.scatter(allsize, f1s, s = 8, alpha = 0.5, c = cols, edgecolor="None")
+    plt.scatter([bfd_vec, allthewayvec, allsize[f1s.index(max(f1s))]], [baseline_w_f1, alltheway_f1, max(f1s)], s = 30, alpha = 1, c = [rd, orgn, grn], edgecolor="None")
+    plt.ylabel("Weighted-F1 score", fontsize = 18)
+    plt.xlabel("Vector length", fontsize = 18)
+    plt.tick_params(labelsize = 18)
+    plt.plot(allsize, p(allsize), c = "black", alpha = 0.6, linewidth = 1)
+    plt.text(4100, 0.7, f"$R^2$ = {r2:.3f}", fontsize = 14)
+    plt.savefig("./plot/PSSM_feature_gridsearch.pdf", dpi = 600, bbox_inches = 'tight')
 main()

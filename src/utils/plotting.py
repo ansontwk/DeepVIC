@@ -73,7 +73,6 @@ def filter_unclassified(tensor_arr, vf, cls):
     return pos_tensor, pos_cls
 
 def filter_VF(tensor_arr, vf, cls):
-    
     pos_tensor = []
     pos_cls = []
     for tensor, vf_bin, vf_cls in zip(tensor_arr, vf, cls):
@@ -84,20 +83,20 @@ def filter_VF(tensor_arr, vf, cls):
     pos_cls = np.array(pos_cls)
     return pos_tensor, pos_cls
 
-def plot_umap(embeddings, colours, handle, filename, plot_size = (15, 8), col_alpha = 0.5):
+def plot_umap(embeddings, colours, handle, filename, plot_size = (20, 14), col_alpha = 0.5):
     plt.figure(figsize=plot_size)
-    plt.scatter(embeddings[:, 0], embeddings[:, 1], c = colours, s=2.5, alpha = col_alpha, edgecolors='none')
+    plt.scatter(embeddings[:, 0], embeddings[:, 1], c = colours, s=4, alpha = col_alpha, edgecolors='none')
     #0.3 for facet, 0.5 for nouncls full, 0.8 for all full
-    plt.legend(handles=handle,loc="upper center", bbox_to_anchor=(0.5, -0.1), markerscale = 2, fontsize = 10, ncol = 5)
-    plt.xlabel("UMAP 2", fontsize = 16)
-    plt.ylabel("UMAP 1", fontsize = 16)
+    plt.legend(handles=handle,loc="upper center", bbox_to_anchor=(0.5, -0.1), markerscale = 4, fontsize = 16, ncol = 4)
+    plt.xlabel("UMAP 2", fontsize = 18)
+    plt.ylabel("UMAP 1", fontsize = 18)
     ax = plt.gca()
     ax.spines[['right', 'top']].set_visible(False)
     ax.xaxis.set_tick_params(labelbottom=False)
     ax.yaxis.set_tick_params(labelleft=False)
     
     ax.set(xticks=[], yticks=[])
-    plt.savefig(f"./{filename}", dpi = 300, bbox_inches = 'tight')
+    plt.savefig(f"./{filename}", dpi = 900, bbox_inches = 'tight')
 
 def plot_roc_curve(y_true, y_pred ,FILENAME):
     from sklearn.metrics import roc_curve
@@ -109,20 +108,20 @@ def plot_roc_curve(y_true, y_pred ,FILENAME):
     plt.ylabel('True Positive Rate', fontsize=20)
     plt.tick_params(labelsize = 18)
     plt.legend(fontsize = 20, loc = 4)
-    plt.savefig(FILENAME, dpi = 300, format = 'pdf', bbox_inches='tight')
+    plt.savefig(FILENAME, dpi = 600, format = 'pdf', bbox_inches='tight')
 
 def plot_prcurve(y_true, y_pred, FILENAME):
     from sklearn.metrics import precision_recall_curve
     precision, recall, _ = precision_recall_curve(y_true, y_pred)
     plt.figure(figsize=(10,10))
-    plt.ylim((0, 1))
-    plt.plot(recall, precision, color='black', label='DeepVIC Binary Classifier')
+    plt.ylim((-0.05, 1.05))
+    plt.plot(recall, precision, color='black', label='DeepVIC binary classifier')
     plt.axhline(y = 0.5, color = 'grey', linestyle = '--', label = 'Random Classifier') 
     plt.xlabel('Recall', fontsize=20)
     plt.ylabel('Precision', fontsize=20)
     plt.tick_params(labelsize = 18)
     plt.legend(fontsize = 20, loc = 4)
-    plt.savefig(FILENAME, dpi = 300, format = 'pdf', bbox_inches='tight')
+    plt.savefig(FILENAME, dpi = 600, format = 'pdf', bbox_inches='tight')
     
 def plot_confu(y_true, y_pred, FILENAME, cutoff):
     import pandas as pd
@@ -135,19 +134,21 @@ def plot_confu(y_true, y_pred, FILENAME, cutoff):
     array = [[tn, fp], [fn, tp]]
     df_cm = pd.DataFrame(array, index = ['Not VF', 'VF'], columns = ['Not VF', 'VF'])
     ax = sns.heatmap(df_cm, annot=True, fmt='g', cmap='Blues', annot_kws={"size": 24})       #Fmt G suppress scientific notation
+    cbar = ax.collections[0].colorbar
+    cbar.ax.tick_params(labelsize=20)
     plt.xlabel("Predicted", fontsize=20)
     plt.ylabel("Actual", fontsize=20)
     plt.tick_params(labelsize = 18)
     plt.savefig(FILENAME, format = 'pdf', dpi = 300, bbox_inches='tight') 
 
 def plot_confu_mult(df, filepath, formatting = '.2f'):
-    plt.figure(figsize=(20,17))
-    ax = sns.heatmap(df, annot=True, fmt=formatting, cmap='Blues', annot_kws={"size": 24}, square=True)
-    ax.collections[0].colorbar.ax.tick_params(labelsize=20)
-    plt.xlabel("Predicted", fontsize=22)
-    plt.ylabel("Actual", fontsize=22)
-    plt.tick_params(labelsize = 20)
-    plt.savefig(filepath, format = 'pdf', dpi = 300, bbox_inches='tight')
+    plt.figure(figsize=(24,20))
+    ax = sns.heatmap(df, annot=True, fmt=formatting, cmap='Blues', annot_kws={"size": 26}, square=True)
+    ax.collections[0].colorbar.ax.tick_params(labelsize=22)
+    plt.xlabel("Predicted", fontsize=24)
+    plt.ylabel("Actual", fontsize=24)
+    plt.tick_params(labelsize = 22)
+    plt.savefig(filepath, format = 'pdf', dpi = 600, bbox_inches='tight')
 
 def plot_prcurve_mult(micro_rec, micro_pre, micro_auprc, filepath, plot_dict, label_dict):
     plt.figure(figsize=(10,10))
@@ -165,7 +166,7 @@ def plot_prcurve_mult(micro_rec, micro_pre, micro_auprc, filepath, plot_dict, la
         plt.plot(recalls, precisions, lw=1, alpha=0.5, label = f"{label_dict[i]} \n(AUPRC = {plot_dict[i][2] :.3f})")
     
     plt.legend(loc="upper left", bbox_to_anchor=(1, 1), fontsize = 14)
-    plt.savefig(filepath, dpi = 300, format = 'pdf', bbox_inches='tight')
+    plt.savefig(filepath, dpi = 600, format = 'pdf', bbox_inches='tight')
     
 def getcosine(listofvectors):
     cosines = cosine_similarity(listofvectors)
@@ -241,22 +242,22 @@ def plot_VF(df_melted, filepath, colours = ["#4DBBD5FF", "#8491B4FF", "#3C5488FF
     plt.ylim(0, 1)
     plt.xticks(fontsize=16)
     plt.yticks(fontsize=16)
-    plt.xlabel("VF Class", labelpad= 60, fontsize = 16)
-    plt.ylabel("Weighted F1 Score", fontsize = 16)
-    plt.legend(bbox_to_anchor=(0, 1.02, 1, 0.2), loc="lower left", fancybox = True, ncol = numcol, mode = "expand")
-    plt.savefig(filepath, dpi = 300, bbox_inches = "tight")
+    plt.xlabel("VF Class", labelpad= 60, fontsize = 18)
+    plt.ylabel("Weighted F1 Score", fontsize = 18)
+    plt.legend(bbox_to_anchor=(0, 1.02, 1, 0.2), loc="lower left", fancybox = True, ncol = numcol, mode = "expand", fontsize = 16)
+    plt.savefig(filepath, dpi = 600, bbox_inches = "tight")
 
 def plot_overall(df_melted, filepath, colours = ["#4DBBD5FF", "#8491B4FF", "#3C5488FF", "#E64B35FF", "#BC3C29FF", "#DC0000FF"], numcol = 2):
     #plt.rcParams["font.size"] = 12
     plt.figure(figsize=(15, 10))
     g = sns.barplot(data=df_melted, x="Metric", y="Score", hue="Model", palette=colours)
-    plt.xticks(fontsize=14)
-    plt.yticks(fontsize=14)
-    plt.ylim(0, 1)
-    plt.ylabel("F1 score", fontsize = 16)
-    plt.xlabel("Metric", fontsize = 16)
-    plt.legend(bbox_to_anchor=(0, 1.02, 1, 0.2), loc="lower left", fancybox = True, ncol = numcol, mode = "expand")
-    plt.savefig(filepath, dpi = 300, bbox_inches = "tight")
+    plt.xticks(fontsize=16)
+    plt.yticks(fontsize=16)
+    plt.ylim(0, 1.05)
+    plt.ylabel("F1 score", fontsize = 18)
+    plt.xlabel("Metric", fontsize = 18)
+    plt.legend(bbox_to_anchor=(0, 1.02, 1, 0.2), loc="lower left", fancybox = True, ncol = numcol, mode = "expand", fontsize = 16)
+    plt.savefig(filepath, dpi = 600, bbox_inches = "tight")
 
 def plot_combined(df_melted_14, df_melted_overall, filepath, colours = ["#4DBBD5FF", "#8491B4FF", "#3C5488FF", "#E64B35FF", "#BC3C29FF", "#DC0000FF"], classlab = mult_confu_lab):
     #combine plot_VF and plot_overall
@@ -265,7 +266,7 @@ def plot_combined(df_melted_14, df_melted_overall, filepath, colours = ["#4DBBD5
     # 14 vf classes
     sns.barplot(data=df_melted_14, x="VF Class", y="F1", hue="Model", palette=colours, ax=axs[0])
     axs[0].set_xticklabels(classlab, rotation=45, ha="right", rotation_mode='anchor')
-    axs[0].set_ylim(0, 1)
+    axs[0].set_ylim(0, 1.05)
     axs[0].set_xlabel("VF Class", labelpad=60, fontsize=16)
     axs[0].set_ylabel("Weighted F1 Score", fontsize=16)
     axs[0].tick_params(axis='both', labelsize=16)
@@ -282,44 +283,44 @@ def plot_combined(df_melted_14, df_melted_overall, filepath, colours = ["#4DBBD5
     handles, labels = axs[0].get_legend_handles_labels()
     fig.legend(handles, labels, loc='upper center', bbox_to_anchor=(0.5, 1.1), ncol=2, fontsize=20, fancybox=True, labelspacing = 1)
     fig.tight_layout()
-    plt.savefig(filepath, dpi=300, bbox_inches="tight")
+    plt.savefig(filepath, dpi=600, bbox_inches="tight")
     
 def plot_bin_shap(df, filepath, xlab = "Treatment", ylab = "SHAP Value"):
-    plt.figure(figsize=(10, 6))
+    plt.figure(figsize=(15, 8))
     sns.catplot(x=xlab, y=ylab, data=df, kind='violin', height=6, aspect=2)
     plt.xlabel("")
     plt.tick_params(labelsize = 18)
     plt.xticks(fontsize = 18, rotation = 45)
     plt.ylabel("SHAP Value", fontsize = 20)
-    plt.savefig(filepath, format = 'pdf', dpi = 300, bbox_inches = 'tight')
+    plt.savefig(filepath, format = 'pdf', dpi = 600, bbox_inches = 'tight')
 
 def plot_mult_shap(df, labels, filepath, prob):
     plt.rcParams.update({'figure.autolayout': True})
     shapmax = max(abs(np.min(df)), abs(np.max(df)))
-    fig, axs = plt.subplots(1, 2, figsize=(20, 8), gridspec_kw={'width_ratios': [3, 1]})
+    fig, axs = plt.subplots(1, 2, figsize=(24, 15), gridspec_kw={'width_ratios': [3, 1]})
     sns.stripplot(df, orient = 'h', alpha = 0.1, ax=axs[0], size=6, jitter = True, color= "#3C5488FF")
     if shapmax < 0.5:
         axs[0].set(xlim=(-0.5, 0.5), xticks=np.arange(-0.5, 0.6, 0.1))
     elif shapmax >= 0.5:
         axs[0].set(xlim=(-1.5, 1.5), xticks=np.arange(-1.5, 1.6, 0.25))
         
-    axs[0].set_xlabel("SHAP Values", fontsize = 20)
-    axs[0].set_ylabel("VF Class", fontsize = 20)
-    axs[0].tick_params(labelsize = 17)
+    axs[0].set_xlabel("SHAP Values", fontsize = 30)
+    axs[0].set_ylabel("VF Class", fontsize = 30)
+    axs[0].tick_params(labelsize = 26)
     axs[0].axvline(x=0, color='black', linestyle='--')
     
     # Bar chart
     axs[1].barh(labels, prob, alpha = 0.8, color = '#3C5488FF')
     axs[1].set_xlim(0, 1)
-    axs[1].set_xlabel('Predicted Probability', fontsize = 20)
+    axs[1].set_xlabel('Predicted Probability', fontsize = 30)
     axs[1].invert_yaxis()
     axs[1].set_yticks([])
     axs[1].set_ylabel('')
     axs[1].xaxis.set_ticks([0, 0.25, 0.5, 0.75, 1])
-    axs[1].tick_params(labelsize = 20)
+    axs[1].tick_params(labelsize = 26)
     for index, value in enumerate(prob):
-        axs[1].text(value + 0.05, index, str(round(value, 3)), va = 'center', ha = 'left', fontweight = 'bold', fontsize = 16)
+        axs[1].text(value + 0.04, index, str(round(value, 3)), va = 'center', ha = 'left', fontweight = 'bold', fontsize = 26)
     axs[0].set_ylim(axs[1].get_ylim())
     plt.tight_layout()
-    plt.savefig(filepath, dpi = 300, format = 'pdf')
+    plt.savefig(filepath, dpi = 600, format = 'pdf', rasterized = True)
     #plt.savefig(f"./plot/{name}_combined.svg", dpi = 300, format = 'svg')

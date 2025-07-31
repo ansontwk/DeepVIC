@@ -6,5 +6,6 @@ src/*/*csv
 testing*
 tmp/*
 src/tmp/*
+src/test*
 example/tmp
 archive*
