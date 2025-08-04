@@ -108,6 +108,16 @@ Add the `-s`/`--silent` flag to suppress the standard output.
 
 Add `--clean` to remove any intermediate files.
 
+## GUI version
+
+As of version 1.1.0, DeepVIC supports a GUI version based on the Gradio frontend. However, this version is early in development. Bugs and unintended behavior may occur. Please use the CLI version in case you are unsure.
+
+1. Navigate to the DeepVIC directory.
+
+2. Run `python DeepVIC_gui.py`
+
+3. On your browser, navigate to `http://127.0.0.1:7860`
+
 ## OS and hardware requirements
 - unix/linux system (tested on Ubunutu 20.04)
 - CUDA-compatible GPU (tested on NVIDIA a6000 ada GPU and NVIDIA RTX 4090 systems)
@@ -135,6 +145,7 @@ The following packages and versions are used in the project:
 - `shap==0.46.0`
 - `imbalanced-learn==0.12.4`
 - `tqdm==4.66.4`
+- `gradio==5.39.0`
 
 ## FAQ and Notes
 
@@ -182,3 +193,4 @@ This project is licensed under the terms of the MIT license. See [LICENSE](./LIC
 
 * v1.0.0 Initial release
 * v1.0.1 Added support to directly calling path to ProtBert BFD in `DeepVIC.py`. Cleaned up some formatting, increased some verbosity.
+* v1.1.0 Added GUI support! See the GUI tutorial for more details.

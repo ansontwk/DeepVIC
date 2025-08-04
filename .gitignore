@@ -4,8 +4,10 @@ __pycache__/
 *.pdf
 src/*/*csv
 testing*
+test*
 tmp/*
 src/tmp/*
 src/test*
 example/tmp
 archive*
+*.gradio
