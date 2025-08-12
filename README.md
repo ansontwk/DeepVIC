@@ -72,35 +72,36 @@ python DeepVIC.py -m m -i myseq.faa --pssmpath /PATH/TO/PSSM/FEATURES -o /PATH/T
 In the path parsed by the `--pssmpath` flag, it should contain subdirectories with names of `["aac_pssm", "d_fpssm", "edp", "k_separated_bigrams_pssm", "pssm_composition", "rpm_pssm"]`. In each subdirectory, `csv` files corresponding to the fasta header is expected.
 
 For example, your fasta sequences are as 
-    ```
-    >seq1
-    AAAA
-    >seq2
-    AAAA
-    ```
-and the `--pssmpath` flag is set to ./featurefile/, the directory structure should be as follows:
+```
+>seq1
+AAAA
+>seq2
+AAAA
+```
+and the `--pssmpath` flag is set to `./featurefile`, the directory structure should be as follows:
 
-    ```
-    featurefile/
-        aac_pssm/
-            seq1.csv
-            seq2.csv
-        ...
-    ```
+```
+featurefile/
+    aac_pssm/
+        seq1.csv
+        seq2.csv
+    ...
+```
 #### Expected outputs
 
 In both modes, DeepVIC produces a tab-separated file with the predictions as specified by the `-o` flag. Using the same example above, the output file will be as follows:
 
-    ```
-    seq1    VF
-    seq2    Non-VF
-    ```
+```
+seq1    VF
+seq2    Non-VF
+```
     
 for binary classification, and 
 
-    ```
-    seq1    Adherence
-    ```
+```
+seq1    Adherence
+```
+
 for multiclass classification.
 
 ### Additional flags
@@ -110,7 +111,7 @@ Add `--clean` to remove any intermediate files.
 
 ## Extracting PSSM features
 
-As of version 1.1.1, DeepVIC provides an CLI script `DeepVIC_extract_pssm_feature.py` for extraction of PSSM features, in the format that DeepVIC expects. 
+As of version 1.1.1, DeepVIC provides a CLI script `DeepVIC_extract_pssm_feature.py` for extraction of PSSM features, in the format that DeepVIC expects. 
 
 Default output directory is `./tmp/features`. Invoke this directory using the `--pssmpath` flag when running DeepVIC in multiclass mode.
 
@@ -197,9 +198,9 @@ The following packages and versions are used in the project:
 
 * PSSM information
 
-    As of Aug 2024, [POSSUM](http://possum.erc.monash.edu/) is no longer accessible. Although DeepVIC has a bundled version of POSSUM, Suggested alternatives to POSSUM are the R-based tool [PSSMCOOL](https://github.com/BioCool-Lab/PSSMCOOL) or the CLI-tool [ProtFeat](https://github.com/gozsari/ProtFeat).
+    As of Aug 2024, [POSSUM](http://possum.erc.monash.edu/) is no longer accessible. Although DeepVIC has a bundled version of POSSUM, you may also consider suggested alternatives to POSSUM such as the R-based tool [PSSMCOOL](https://github.com/BioCool-Lab/PSSMCOOL) or the CLI-tool [ProtFeat](https://github.com/gozsari/ProtFeat).
 
-    Furthermore, the UniRef50 database version that DeepVIC uses for feature extraction is from **Feb 2024**. Later versions *may* cause discrepancies in results.
+    Furthermore, note that the UniRef50 database version that DeepVIC uses for feature extraction is from **Feb 2024**. Later versions *may* cause discrepancies in results.
 
     
 ## Citation
