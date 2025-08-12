@@ -1,6 +1,6 @@
 # DeepVIC - Deep learning Virulence Factor Identifier and Classifier :mag::microbe:
 
-![Static Badge](https://img.shields.io/badge/Version-1.0.0-yellow)
+![Static Badge](https://img.shields.io/badge/Version-1.1.1-yellow)
 ![Static Badge](https://img.shields.io/badge/Linux-Ubuntu-orange?style=flat&logo=ubuntu&logoColor=%23E95420)
 ![Static Badge](https://img.shields.io/badge/Python-3.10-blue?style=flat&logo=python&logoColor=%233776AB)
 ![Static Badge](https://img.shields.io/badge/Tensorflow-v2.14-orange?style=flat&logo=tensorflow&logoColor=%23FF6F00)
