@@ -91,7 +91,7 @@ def main():
         with gr.Column():
             gr.Markdown(f"# {program_desc}")
             gr.Markdown(f"## Version {version}")
-            gr.Markdown("### You are running the GUI version of DeepVIC. For better customization and control over pipeline parameters, please use the command line version.")
+            gr.Markdown("### You are running the GUI version of DeepVIC. For more customization and control over pipeline parameters, please use the command line version.")
 
             inputfile = gr.File(label = "Place your protein fasta file here", file_types=[".fasta", ".faa", ".fa"])
             protbert_bfd_pathbox = gr.Textbox(label="Path to ProtBERT-BFD model.", info = f"Leave blank for the default value of {ProtBertBFD_path} as defined in src/utils/paths.py")

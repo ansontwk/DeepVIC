@@ -1,5 +1,5 @@
 program_header = r"""
-██████╗ ███████╗███████╗██████╗ ██╗   ██╗██╗ ██████╗
+██████╗ ███████╗███████╗██████╗ ██╗   ██╗██╗ ██████╗ 
 ██╔══██╗██╔════╝██╔════╝██╔══██╗██║   ██║██║██╔════╝
 ██║  ██║█████╗  █████╗  ██████╔╝██║   ██║██║██║     
 ██║  ██║██╔══╝  ██╔══╝  ██╔═══╝ ╚██╗ ██╔╝██║██║     
@@ -7,9 +7,10 @@ program_header = r"""
 ╚═════╝ ╚══════╝╚══════╝╚═╝       ╚═══╝  ╚═╝ ╚═════╝
                                                     
 """
+
 program_desc = "DeepVIC: Deep learning Virulence factor Identifier and Classifier"
 program_whatdoesitdo = "Bacterial Virulence factor prediction and classifcation based on protein sequences"
-version = "1.1.0"
+version = "1.1.1"
 flavour_text = "'Go see the sights!'"
 author = "WK TSUI"
 

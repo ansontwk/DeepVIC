@@ -108,6 +108,29 @@ Add the `-s`/`--silent` flag to suppress the standard output.
 
 Add `--clean` to remove any intermediate files.
 
+## Extracting PSSM features
+
+As of version 1.1.1, DeepVIC provides an CLI script `DeepVIC_extract_pssm_feature.py` for extraction of PSSM features, in the format that DeepVIC expects. 
+
+Default output directory is `./tmp/features`. Invoke this directory using the `--pssmpath` flag when running DeepVIC in multiclass mode.
+
+We have also provided the corresponding conda environment dependencies in `py27.yml`. To install:
+
+```bash
+conda env create -f py27.yml
+```
+
+To run psi-blast and extract PSSM features:
+
+```bash
+python DeepVIC_extract_pssm_feature.py -i YOUR_FASTA_FILE -t NUM_OF_THREADS -d /PATH/TO/UNIREFBLASTDB
+```
+
+Num of threads defaults to 8, and UniRef blastdb defaults to the UNIREF50 defined under `src/utils/paths.py`. 
+
+**Note**: If you want to use a different UniRef blastdb, you can specify the path to it using the `-d` flag.
+Also note that DeepVIC uses sequence headers as extracted from ids from `Biopython SeqRecord` to name the output files. Please take note when handling headers that may break the script.
+
 ## GUI version
 
 As of version 1.1.0, DeepVIC supports a GUI version based on the Gradio frontend. However, this version is early in development. Bugs and unintended behavior may occur. Please use the CLI version in case you are unsure.
@@ -125,6 +148,7 @@ As of version 1.1.0, DeepVIC supports a GUI version based on the Gradio frontend
 ## External dependencies
 - [POSSUM](http://possum.erc.monash.edu/) Version `1.0.0` and related dependencies 
 - [ProtBert BFD](https://huggingface.co/Rostlab/prot_bert_bfd) and related dependencies
+
 
 ## Requisites and dependencies
 The following packages and versions are used in the project: 
@@ -171,12 +195,13 @@ The following packages and versions are used in the project:
 
     Discrepancies on results may occur between different systems due to the differences in floating point operations on different GPUs. DeepVIC was created on a system with an NVIDIA a6000 ada GPU. Additional testing was done on an independent system with a NVIDIA RTX 4090 GPU. 
 
-* Alternatives to POSSUM
+* PSSM information
 
-    As of Aug 2024, [POSSUM](http://possum.erc.monash.edu/) is no longer accessible. Suggested alternatives to POSSUM is the R-based tool [PSSMCOOL](https://github.com/BioCool-Lab/PSSMCOOL) or the CLI-tool [ProtFeat](https://github.com/gozsari/ProtFeat).
+    As of Aug 2024, [POSSUM](http://possum.erc.monash.edu/) is no longer accessible. Although DeepVIC has a bundled version of POSSUM, Suggested alternatives to POSSUM are the R-based tool [PSSMCOOL](https://github.com/BioCool-Lab/PSSMCOOL) or the CLI-tool [ProtFeat](https://github.com/gozsari/ProtFeat).
+
+    Furthermore, the UniRef50 database version that DeepVIC uses for feature extraction is from **Feb 2024**. Later versions *may* cause discrepancies in results.
 
     
-
 ## Citation
 
 Please cite this repo if you use DeepVIC in your work
@@ -193,4 +218,5 @@ This project is licensed under the terms of the MIT license. See [LICENSE](./LIC
 
 * v1.0.0 Initial release
 * v1.0.1 Added support to directly calling path to ProtBert BFD in `DeepVIC.py`. Cleaned up some formatting, increased some verbosity.
-* v1.1.0 Added GUI support! See the GUI tutorial for more details.
+* v1.1.0 Added GUI support! See the [GUI tutorial](#gui-version) for more details.
+* v1.1.1 Added utility script support for extracting PSSM features for multiclass predictions. See [how to extract features](#extracting-pssm-features) for more details. Updated minor typo and bug fixes.

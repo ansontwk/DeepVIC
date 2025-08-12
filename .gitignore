@@ -11,3 +11,4 @@ src/test*
 example/tmp
 archive*
 *.gradio
+feature_extraction_output/*
