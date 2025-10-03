@@ -223,4 +223,4 @@ This project is licensed under the terms of the MIT license. See [LICENSE](./LIC
 * v1.0.1 Added support to directly calling path to ProtBert BFD in `DeepVIC.py`. Cleaned up some formatting, increased some verbosity.
 * v1.1.0 Added GUI support! See the [GUI tutorial](#gui-version) for more details.
 * v1.1.1 Added utility script support for extracting PSSM features for multiclass predictions. See [how to extract features](#extracting-pssm-features) for more details. Updated minor typo and bug fixes.
-* v1.1.2 Improved sharing support for DeepVIC GUI
+* v1.1.2 Improved sharing support for DeepVIC GUI, cleaned up some redundant code.
