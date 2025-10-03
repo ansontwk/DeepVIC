@@ -134,13 +134,15 @@ Also note that DeepVIC uses sequence headers as extracted from ids from `Biopyth
 
 ## GUI version
 
-As of version 1.1.0, DeepVIC supports a GUI version based on the Gradio frontend. However, this version is early in development. Bugs and unintended behavior may occur. Please use the CLI version in case you are unsure.
+As of version 1.1.2, DeepVIC supports a GUI version based on the Gradio frontend. However, this version is early in development. Bugs and unintended behavior may occur. Please use the CLI version in case you are unsure.
 
 1. Navigate to the DeepVIC directory.
 
 2. Run `python DeepVIC_gui.py`
 
 3. On your browser, navigate to `http://127.0.0.1:7860`
+
+Alternatively, run `python DeepVIC_gui.py --share` to create a sharable link to the GUI.
 
 ## OS and hardware requirements
 - unix/linux system (tested on Ubunutu 20.04)
@@ -221,3 +223,4 @@ This project is licensed under the terms of the MIT license. See [LICENSE](./LIC
 * v1.0.1 Added support to directly calling path to ProtBert BFD in `DeepVIC.py`. Cleaned up some formatting, increased some verbosity.
 * v1.1.0 Added GUI support! See the [GUI tutorial](#gui-version) for more details.
 * v1.1.1 Added utility script support for extracting PSSM features for multiclass predictions. See [how to extract features](#extracting-pssm-features) for more details. Updated minor typo and bug fixes.
+* v1.1.2 Improved sharing support for DeepVIC GUI

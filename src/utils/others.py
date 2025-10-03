@@ -54,3 +54,12 @@ def replace_seq(original_seq, roi_idx_start, roi_idx_roi_end):
     
     return outseq
     
+def sorting(a, x, b, c,):
+    #to ensure all lists follow the same order
+    #sort a, x, b based on the order of c (using B)
+    index_map = {value: index for index, value in enumerate(c)}
+    sorted_indices = sorted(range(len(b)), key=lambda i: index_map[b[i]])
+    sorted_b = [b[i] for i in sorted_indices]
+    sorted_a = [a[i] for i in sorted_indices]
+    sorted_x = [x[i] for i in sorted_indices]
+    return sorted_a, sorted_b, sorted_x

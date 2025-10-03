@@ -8,10 +8,15 @@ import pandas as pd
 import numpy as np
 from tensorflow import keras
 from Bio import SeqIO
+import argparse
 from src.utils.headers import version, program_desc
 from src.utils.paths import model_binary, ProtBertBFD_path, model_multiclass
 from src.utils.predict_utils import load_data_seqonly as load_data, embed_PLM as embed, bin2VF, get_PSSM_embeddings, PSSM_TYPE as pssm_dict, ORDERED_OPT_PSSM as features, mult2VF
 THEME = gr.themes.Glass()
+
+parser = argparse.ArgumentParser(description=f"DeepVIC GUI Version {version}")
+parser.add_argument('-s', '--share', action='store_true', help = "Creates a publicily sharable link")
+args = parser.parse_args()
 
 def get_fastaname(fastafile):
     gr.Info(f"Uploaded {os.path.basename(fastafile)} successfully")
@@ -108,8 +113,8 @@ def main():
             #========================================================
             #prediction button
             with gr.Row():
-                predict_button = gr.Button("Predict Binary model")
-                predict_mult_button = gr.Button("Predict Multiclass Results")
+                predict_button = gr.Button("Binary Prediction")
+                predict_mult_button = gr.Button("Multiclass Prediction")
                 
             #========================================================
             #prediction results section
@@ -118,6 +123,7 @@ def main():
             save_path_box = gr.Textbox(label="Save Path", info= "Leave blank to save into the 'output' folder of DeepVIC.")
             save_button = gr.Button("Save Predictions")
             output_file = gr.File(interactive = False, visible = False)
+            
             with gr.Accordion("Debugger", open = False):
                 debugger_textbox = gr.Textbox(label="Debugger", interactive=False)
                 debugger_button = gr.Button("Show paths and models")
@@ -129,6 +135,7 @@ def main():
         predict_mult_button.click(multiclass, [inputfile, protbert_bfd_pathbox, pssm_pathbox], output_df)
         save_button.click(save_file, [output_df, save_path_box], output_file)
         debugger_button.click(debugger, [protbert_bfd_pathbox, save_path_box], debugger_textbox)
-    deepvic.launch()
+    
+    deepvic.launch(share = True) if args.share else deepvic.launch()
 
 main()
