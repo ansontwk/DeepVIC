@@ -207,11 +207,55 @@ The following packages and versions are used in the project:
     
 ## Citation
 
-Please cite this repo if you use DeepVIC in your work
-
-Citation details will be updated.
+17 Aug 2026 - DeepVIC has been published in Bioinformatics Advances. Please cite the corresponding article if you use DeepVIC in your work.
+```
+@article{10.1093/bioadv/vbag237,
+    author = {Tsui, Wai-Kai and Chan, You-Xiang and Chow, Kin-Hung and Ho, Pak-Leung and Cao, Huiluo},
+    title = {DeepVIC: Modular Prediction and Classification of Bacterial Virulence Factors using Protein Language Model Embeddings},
+    journal = {Bioinformatics Advances},
+    pages = {vbag237},
+    year = {2026},
+    month = {08},
+    issn = {2635-0041},
+    doi = {10.1093/bioadv/vbag237},
+    url = {https://doi.org/10.1093/bioadv/vbag237},
+    eprint = {https://academic.oup.com/bioinformaticsadvances/advance-article-pdf/doi/10.1093/bioadv/vbag237/70673432/vbag237.pdf},
+}
+```
 
 DeepVIC uses POSSUM and ProtBert BFD for feature extraction. Please kindly cite those tools as well.
+
+Protbert-BFD/ProtTrans
+```
+@misc{elnaggar2021prottranscrackinglanguagelifes,
+      title={ProtTrans: Towards Cracking the Language of Life's Code Through Self-Supervised Deep Learning and High Performance Computing}, 
+      author={Ahmed Elnaggar and Michael Heinzinger and Christian Dallago and Ghalia Rihawi and Yu Wang and Llion Jones and Tom Gibbs and Tamas Feher and Christoph Angerer and Martin Steinegger and Debsindhu Bhowmik and Burkhard Rost},
+      year={2021},
+      eprint={2007.06225},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG},
+      url={https://arxiv.org/abs/2007.06225}, 
+}
+```
+
+POSSUM
+```
+@article{10.1093/bioinformatics/btx302,
+    author = {Wang, Jiawei and Yang, Bingjiao and Revote, Jerico and Leier, André and Marquez-Lago, Tatiana T and Webb, Geoffrey and Song, Jiangning and Chou, Kuo-Chen and Lithgow, Trevor},
+    title = {POSSUM: a bioinformatics toolkit for generating numerical sequence feature descriptors based on PSSM profiles},
+    journal = {Bioinformatics},
+    volume = {33},
+    number = {17},
+    pages = {2756-2758},
+    year = {2017},
+    month = {09},
+    issn = {1367-4803},
+    doi = {10.1093/bioinformatics/btx302},
+    url = {https://doi.org/10.1093/bioinformatics/btx302},
+    eprint = {https://academic.oup.com/bioinformatics/article-pdf/33/17/2756/49040623/bioinformatics_33_17_2756.pdf},
+}
+```
+
 
 ## License
 
@@ -224,3 +268,5 @@ This project is licensed under the terms of the MIT license. See [LICENSE](./LIC
 * v1.1.0 Added GUI support! See the [GUI tutorial](#gui-version) for more details.
 * v1.1.1 Added utility script support for extracting PSSM features for multiclass predictions. See [how to extract features](#extracting-pssm-features) for more details. Updated minor typo and bug fixes.
 * v1.1.2 Improved sharing support for DeepVIC GUI, cleaned up some redundant code.
+
+
